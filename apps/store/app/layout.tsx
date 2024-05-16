@@ -6,6 +6,7 @@ import { setCurrency } from 'actions/setCurrency'
 
 import { Brand } from 'consts/brand'
 
+import { CategoriesCard } from 'ui/Sidebar/CategoriesCard'
 import { Header } from 'ui/Header'
 import { InformationCard } from 'ui/Sidebar/InformationCard'
 import { Navbar } from 'ui/Navbar'
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: Props) {
           <aside className='w-70 mr-2 shrink-0'>
             <InformationCard />
             <SymbolsCard />
+            <CategoriesCard />
           </aside>
 
           <main className='grow'>

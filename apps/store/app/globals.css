@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+summary {
+  list-style: none;
+}
+
+details > summary::after {
+  content: '\0025bf';
+  margin-left: 4px;
+}
+
+details[open] > summary::after {
+  content: '\0025b5';
+  margin-left: 4px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
