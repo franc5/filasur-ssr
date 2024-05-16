@@ -7,6 +7,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderColor: {
+        DEFAULT: 'black',
+      },
+      spacing: {
+        '1': '4px',
+        '2': '8px',
+      },
     },
   },
   plugins: [],
