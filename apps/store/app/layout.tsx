@@ -7,6 +7,7 @@ import { setCurrency } from 'actions/setCurrency'
 import { Brand } from 'consts/brand'
 
 import { CategoriesCard } from 'ui/Sidebar/CategoriesCard'
+import { Footer } from 'ui/Footer'
 import { Header } from 'ui/Header'
 import { InformationCard } from 'ui/Sidebar/InformationCard'
 import { Navbar } from 'ui/Navbar'
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: Props) {
             {children}
           </main>
         </div>
+        <Footer />
       </body>
     </html>
   )
