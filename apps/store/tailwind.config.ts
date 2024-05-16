@@ -10,9 +10,15 @@ const config: Config = {
       borderColor: {
         DEFAULT: 'black',
       },
+      colors: {
+        'blue': '#5989bb',
+        'blue-dark': '#00559a',
+        'blue-light': '#517dab',
+      },
       spacing: {
         '1': '4px',
         '2': '8px',
+        '14': '56px',
       },
     },
   },

@@ -7,6 +7,7 @@ import { setCurrency } from 'actions/setCurrency'
 import { Brand } from 'consts/brand'
 
 import { Header } from 'ui/Header'
+import { Navbar } from 'ui/Navbar'
 
 import './globals.css'
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Props) {
     <html lang='es'>
       <body className={inter.className}>
         <Header userName='Invitado' setCurrency={setCurrency} />
+        <Navbar />
         {children}
       </body>
     </html>
