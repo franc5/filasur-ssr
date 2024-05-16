@@ -16,6 +16,17 @@ details[open] > summary::after {
   margin-left: 4px;
 }
 
+input {
+  border: 1px solid black;
+  outline: none !important;
+  padding: 0 4px;
+}
+
+input[type=image] {
+  border: none;
+  padding: 0;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

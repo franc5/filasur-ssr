@@ -1,0 +1,11 @@
+{
+  "email": "email",
+  "here": "aquí",
+  "invalid_credentials_error": "email o contraseña no válidos",
+  "instructions": "Inicie sesión con su email y contraseña para poder comprar:",
+  "password": "Contraseña",
+  "recover_password_invite": "Si no recuerda su contraseña, haga click",
+  "sign_in": "Ingresar",
+  "sign_up_invite": "Si aún no está registrado, haga click",
+  "title": "Ingresar"
+}
