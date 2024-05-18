@@ -4,6 +4,8 @@ import { Brand } from 'consts/brand'
 import { Errors } from 'consts/errors'
 import { Table } from 'consts/db'
 
+import { parseRangeNotSatisfiableError } from './parseRangeNotSatisfiableError'
+
 import type { Item } from 'types/item'
 
 type DBItem = Omit<Item, 'priceArs'>
@@ -33,8 +35,21 @@ export const getItems = async (categoryId: number, page: number) => {
   const ars = +currencies.data?.ars
 
   if (currencies.error || items.error || currencies.data?.ars === null || isNaN(ars) || items.count === null) {
+    const rowCount = parseRangeNotSatisfiableError(items.error?.details || '')
+
+    if (rowCount !== undefined) {
+      return {
+        error: {
+          type: Errors.Page_Does_Not_Exists as Errors.Page_Does_Not_Exists,
+          lastPage: Math.trunc(rowCount / Brand.itemsPerPage),
+        }
+      }
+    }
+
     return {
-      error: new Error(Errors.Internal_Server_Error)
+      error: {
+        type: Errors.Internal_Server_Error as Errors.Internal_Server_Error,
+      }
     }
   }
 

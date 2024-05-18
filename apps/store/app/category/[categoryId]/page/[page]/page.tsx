@@ -1,8 +1,11 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 
 import { getCategoryName } from 'utils/categories/getCategoryName'
 import { getCurrency } from 'utils/currencies/getCurrency'
 import { getItems } from 'utils/supabase/getItems'
+
+import { Errors } from 'consts/errors'
+import { Urls } from 'consts/urls'
 
 import { Card } from 'ui/Card'
 import { ItemCard } from 'ui/ItemCard'
@@ -29,7 +32,11 @@ export default async function CategoryPage({ params }: Props) {
   const { items, itemsCount, error } = await getItems(categoryId, page)
 
   if (error) {
-    throw error
+    if (error.type === Errors.Page_Does_Not_Exists) {
+      redirect(`${Urls.Category}/${categoryId}/page/${error.lastPage}`)
+    }
+
+    throw new Error(error.type)
   }
 
   const currency = getCurrency()
