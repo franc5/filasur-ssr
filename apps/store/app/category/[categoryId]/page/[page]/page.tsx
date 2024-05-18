@@ -1,15 +1,13 @@
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
 import { getCategoryName } from 'utils/categories/getCategoryName'
-
-import { Urls } from 'consts/urls'
 
 import { Card } from 'ui/Card'
 
 type Props = {
   params: {
     categoryId: string
-    page: string
+    page: string // It is enforced to be a number greater than zero in the middleware
   }
 }
 
@@ -21,10 +19,6 @@ export default async function CategoryPage({ params }: Props) {
 
   if (!categoryName) {
     notFound()
-  }
-
-  if (isNaN(page) || page < 1) {
-    redirect(`${Urls.Category}/${categoryId}/page/1`)
   }
 
   return (

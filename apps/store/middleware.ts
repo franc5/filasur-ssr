@@ -1,9 +1,18 @@
 // Based on https://supabase.com/docs/guides/auth/server-side/nextjs
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 
+import { parseCategoryUrlPath } from 'utils/categories/parseCategoryUrlPath'
 import { updateSession } from 'utils/supabase/middleware'
 
+import { Urls } from 'consts/urls'
+
 export async function middleware(request: NextRequest) {
+  const { origin, pathname } = request.nextUrl
+  const { categoryId, page } = parseCategoryUrlPath(pathname)
+  if (categoryId !== undefined && page === undefined) {
+    return NextResponse.redirect(`${origin}${Urls.Category}/${categoryId}/page/1`)
+  }
+
   return await updateSession(request)
 }
 
