@@ -1,8 +1,13 @@
 import { notFound } from 'next/navigation'
 
 import { getCategoryName } from 'utils/categories/getCategoryName'
+import { getCurrency } from 'utils/currencies/getCurrency'
+import { getItems } from 'utils/supabase/getItems'
 
 import { Card } from 'ui/Card'
+import { ItemCard } from 'ui/ItemCard'
+
+import Strings from './es.json'
 
 type Props = {
   params: {
@@ -21,11 +26,22 @@ export default async function CategoryPage({ params }: Props) {
     notFound()
   }
 
+  const { items, itemsCount, error } = await getItems(categoryId, page)
+
+  if (error) {
+    throw error
+  }
+
+  const currency = getCurrency()
+
   return (
     <Card title={categoryName}>
-      <span>
-        Placeholder - Page: {page}
-      </span>
+      <>
+        <p className='mb-2 font-bold text-blue-dark'>
+          {itemsCount} {Strings.items_in_this_section}
+        </p>
+        {items.map(item => <ItemCard key={item.id} currency={currency} {...item} />)}
+      </>
     </Card>
   )
 }

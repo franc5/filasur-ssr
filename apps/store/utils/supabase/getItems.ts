@@ -4,15 +4,9 @@ import { Brand } from 'consts/brand'
 import { Errors } from 'consts/errors'
 import { Table } from 'consts/db'
 
-type DBItem = {
-  description: string
-  id: number
-  imagesCount: number
-  priceUsd: number
-  selfId: string
-  symbols: string
-  title: string
-}
+import type { Item } from 'types/item'
+
+type DBItem = Omit<Item, 'priceArs'>
 
 export const getItems = async (categoryId: number, page: number) => {
   const supabase = createClient()
