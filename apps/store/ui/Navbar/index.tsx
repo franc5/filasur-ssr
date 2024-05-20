@@ -18,7 +18,7 @@ export const Navbar = () => (
     >
       <input
         minLength={5}
-        name='searchParams'
+        name='keywords'
         placeholder={Strings.search_placeholder}
         required
         type='search'

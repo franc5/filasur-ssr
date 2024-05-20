@@ -11,7 +11,7 @@ const testSearchBar = () => {
   expect(form).toHaveAttribute('action', Urls.Search)
   expect(form).toHaveAttribute('method', 'get')
   expect(form.childNodes).toHaveLength(2)
-  expect(form).toHaveFormValues({ searchParams: '' })
+  expect(form).toHaveFormValues({ keywords: '' })
 
   within(form).getByPlaceholderText(Strings.search_placeholder)
 

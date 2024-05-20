@@ -7,10 +7,16 @@ import { updateSession } from 'utils/supabase/middleware'
 import { Urls } from 'consts/urls'
 
 export async function middleware(request: NextRequest) {
-  const { origin, pathname } = request.nextUrl
+  const { origin, pathname, searchParams } = request.nextUrl
+
   const { categoryId, page } = parseCategoryUrlPath(pathname)
   if (categoryId !== undefined && page === undefined) {
     return NextResponse.redirect(`${origin}${Urls.Category}/${categoryId}/page/1`)
+  }
+
+  const keywords = searchParams.get('keywords')
+  if (!!keywords && pathname.startsWith(Urls.Search)) {
+    return NextResponse.redirect(`${origin}${Urls.Search}/${keywords}/page/1`)
   }
 
   return await updateSession(request)
