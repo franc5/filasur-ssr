@@ -1,0 +1,97 @@
+[{
+  "name_es": "Mint nuevo sin bisagra",
+  "symbol": "✳✳✳"
+}, {
+  "name_es": "Usado",
+  "symbol": "⊚"
+}, {
+  "name_es": "Cuadro",
+  "symbol": "⊞"
+}, {
+  "name_es": "Nuevo con bisagra",
+  "symbol": "✳✳"
+}, {
+  "name_es": "Nuevo sin goma",
+  "symbol": "✳"
+}, {
+  "name_es": "Sobre / carta / cubierta",
+  "symbol": "🖂"
+}, {
+  "name_es": "Obliterado a pluma",
+  "symbol": "OP"
+}, {
+  "name_es": "Primer día de emisión",
+  "symbol": "PDE"
+}, {
+  "name_es": "Impreso sobre goma",
+  "symbol": "ISG"
+}, {
+  "name_es": "Fragmento",
+  "symbol": "Frag"
+}, {
+  "name_es": "Muestra",
+  "symbol": "Mu"
+}, {
+  "name_es": "Cuño",
+  "symbol": "C"
+}, {
+  "name_es": "Ensayo / Prueba",
+  "symbol": "En"
+}, {
+  "name_es": "Entero Postal",
+  "symbol": "EP"
+}, {
+  "name_es": "Viñeta",
+  "symbol": "Viñ"
+}, {
+  "name_es": "Bloque / Hojita Bloque",
+  "symbol": "BL./HB"
+}, {
+  "name_es": "Servicio Oficial",
+  "symbol": "SO"
+}, {
+  "name_es": "Tarjeta Postal",
+  "symbol": "TP"
+}, {
+  "name_es": "Falso",
+  "symbol": "(Fso)"
+}, {
+  "name_es": "Leve/s Defecto/s",
+  "symbol": "LD"
+}, {
+  "name_es": "Defecto",
+  "symbol": "Def."
+}, {
+  "name_es": "Matasello",
+  "symbol": "Mat."
+}, {
+  "name_es": "Serie Completa",
+  "symbol": "S/C"
+}, {
+  "name_es": "Sobrecarga",
+  "symbol": "s.c."
+}, {
+  "name_es": "Borde de Hoja",
+  "symbol": "BH"
+}, {
+  "name_es": "Esquina de Hoja",
+  "symbol": "EH"
+}, {
+  "name_es": "Calidad Variable",
+  "symbol": "C.V."
+}, {
+  "name_es": "Filigrana",
+  "symbol": "Fil."
+}, {
+  "name_es": "Punto/s de óxiodo",
+  "symbol": "PO"
+}, {
+  "name_es": "Pequeña Peladura",
+  "symbol": "PP"
+}, {
+  "name_es": "Reimpresión",
+  "symbol": "Reim"
+}, {
+  "name_es": "Perforado",
+  "symbol": "Perf"
+}]
