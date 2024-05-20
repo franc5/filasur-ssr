@@ -1,5 +1,7 @@
 import { Currencies } from 'consts/currencies'
 
+import { formatCurrency } from 'utils/currencies/formatCurrency'
+
 import { Images } from './Images'
 
 import type { Item } from 'types/item'
@@ -10,7 +12,6 @@ type Props = Item & {
 
 // TODO show symbols
 // TODO add buttons
-// TODO format currencies
 export const ItemCard = ({ currency, description, imagesCount, id, priceArs, priceUsd, selfId, title }: Props) => (
   <article className='mb-2 flex [&:not(:last-child)]:border-b-2'>
     <div className='w-75 mb-2 shrink-0'>
@@ -29,7 +30,10 @@ export const ItemCard = ({ currency, description, imagesCount, id, priceArs, pri
         {selfId}
       </p>
       <p className='text-xl font-semibold text-red-700'>
-        $ {currency === Currencies.Usd ? priceUsd : priceArs}
+        {(currency === Currencies.Usd)
+          ? formatCurrency(priceUsd, Currencies.Usd)
+          : formatCurrency(priceArs, Currencies.Ars)
+        }
       </p>
     </div>
   </article>
