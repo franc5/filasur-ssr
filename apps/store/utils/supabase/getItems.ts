@@ -15,6 +15,19 @@ export const getItems = async (categoryId: number, page: number) => {
 
   const itemsFrom = (page - 1) * Brand.itemsPerPage
 
+  const categoryFilter = (() => {
+    switch(categoryId) {
+      case 0:  // Argentina - Full catalog
+        return `category_1.lte.33, category_2.lte.33`
+      case 33: // Universals
+        return `and(category_1.gte.34,category_1.lte.41), and(category_2.gte.34, category_2.lte.41)`
+      case 43: // Postcard
+        return `and(category_1.gte.43,category_1.lte.53), and(category_2.gte.43, category_2.lte.53)`
+      default:
+        return `category_1.eq.${categoryId}, category_2.eq.${categoryId}`
+    }
+  })()
+
   const [currencies, items] = await Promise.all([
     supabase
       .from(Table.Currencies)
@@ -26,7 +39,7 @@ export const getItems = async (categoryId: number, page: number) => {
       .from(Table.Items)
       .select('id, selfId:self_id, symbols, title, description, priceUsd:price, imagesCount:images_count', { count: 'exact' })
       .gt('stock', 0)
-      .or(`category_1.eq.${categoryId}, category_2.eq.${categoryId}`)
+      .or(categoryFilter)
       .order('displaying_order')
       .range(itemsFrom, itemsFrom + Brand.itemsPerPage - 1)
       .returns<DBItem[]>()
