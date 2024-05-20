@@ -4,11 +4,13 @@ import { getCategoryName } from 'utils/categories/getCategoryName'
 import { getCurrency } from 'utils/currencies/getCurrency'
 import { getItems } from 'utils/supabase/getItems'
 
+import { Brand } from 'consts/brand'
 import { Errors } from 'consts/errors'
 import { Urls } from 'consts/urls'
 
 import { Card } from 'ui/Card'
 import { ItemCard } from 'ui/ItemCard'
+import { Paginator } from 'ui/Paginator'
 
 import Strings from './es.json'
 
@@ -40,14 +42,29 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   const currency = getCurrency()
+  const pagesCount = Math.ceil(itemsCount / Brand.itemsPerPage)
+
+  const paginator = (pagesCount > 1)
+    ? <Paginator currentPage={page} pagesCount={pagesCount} pagesShown={Brand.paginatorSize} pathTo={`${Urls.Category}/${categoryId}/page/`} />
+    : undefined
 
   return (
     <Card title={categoryName}>
       <>
-        <p className='mb-2 font-bold text-blue-dark'>
-          {itemsCount} {Strings.items_in_this_section}
-        </p>
+        <div className='mb-4 flex justify-between'>
+          <span className='font-bold text-blue-dark'>
+            {itemsCount} {Strings.items_in_this_section}
+          </span>
+          {paginator}
+        </div>
+
         {items.map(item => <ItemCard key={item.id} currency={currency} {...item} />)}
+
+        {!!paginator && (
+          <div className='mt-4 flex justify-end'>
+            {paginator}
+          </div>
+        )}
       </>
     </Card>
   )
