@@ -1,4 +1,6 @@
-import { Card } from 'ui/Card'
+import { Urls } from 'consts/urls'
+
+import { ItemList } from 'ui/ItemList'
 
 import Strings from './es.json'
 
@@ -13,13 +15,8 @@ export default function SearchPage({ params }: Props) {
   const page = +params.page
   const keywords = decodeURI(params.keywords).split(' ')
 
-  return (
-    <Card title={Strings.title}>
-      <>
-        <p>Placeholder search page</p>
-        <p>Page: {page}</p>
-        <p>Keywords: {keywords.join(', ')}</p>
-      </>
-    </Card>
-  )
+  const filter = keywords.map(k => `title.ilike.%${k}%`).join(',')
+  const path = `${Urls.Search}/${params.keywords}/page`
+
+  return <ItemList filter={filter} page={page} path={path} title={Strings.title} />
 }
