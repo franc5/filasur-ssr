@@ -2,7 +2,10 @@ import { Inter } from 'next/font/google'
 
 import type { Metadata } from 'next'
 
+import { getUser } from 'utils/supabase/getUser'
+
 import { setCurrency } from 'actions/setCurrency'
+import { signOut } from 'actions/signOut'
 
 import { Brand } from 'consts/brand'
 
@@ -25,12 +28,14 @@ type Props = Readonly<{
   children: React.ReactNode
 }>
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
+  const { user } = await getUser()
+
   return (
     <html lang='es'>
       <body className={inter.className}>
         <Header userName='Invitado' setCurrency={setCurrency} />
-        <Navbar />
+        <Navbar isGuest={!user} signOut={signOut} />
         <div className='mx-2 flex'>
           <aside className='w-70 mr-2 shrink-0'>
             <InformationCard />

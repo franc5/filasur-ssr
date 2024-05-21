@@ -1,6 +1,9 @@
 {
+  "cart": "Carrito",
+  "profile": "Mis datos",
   "search_placeholder": "Iniciar una búsqueda",
   "search_submit_button": "Buscar",
   "sign_in": "Ingresar",
+  "sign_out": "Salir",
   "sign_up": "Registrarse"
 }

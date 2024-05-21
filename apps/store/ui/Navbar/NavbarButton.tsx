@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { Urls } from 'consts/urls'
 
+import { NavbarButtonStyles } from './NavbarButton.styles'
+
 type Props = {
   children: string
   href: Urls
@@ -10,10 +12,7 @@ type Props = {
 }
 
 export const NavbarButton = ({ children, href, icon }: Props) => (
-  <Link
-    className='h-14 p-2 flex items-center text-white hover:bg-blue-light'
-    href={href}
-  >
+  <Link className={NavbarButtonStyles} href={href}>
     <Image alt='' className='mr-1' src={icon} />
     {children}
   </Link>
