@@ -47,7 +47,9 @@ export const ItemList = async ({ filter, page, path, title }: Props) => {
           {paginator}
         </div>
 
-        {items.map(item => <ItemCard key={item.id} currency={currency} {...item} />)}
+        <div>
+          {items.map(item => <ItemCard key={item.id} currency={currency} {...item} />)}
+        </div>
 
         {!!paginator && (
           <div className='mt-4 flex justify-end'>
