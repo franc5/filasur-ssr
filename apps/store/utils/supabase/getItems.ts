@@ -41,7 +41,7 @@ export const getItems = async (filter: string, page: number) => {
       return {
         error: {
           type: Errors.Page_Does_Not_Exists as Errors.Page_Does_Not_Exists,
-          lastPage: Math.trunc(rowCount / Brand.itemsPerPage),
+          lastPage: Math.ceil(rowCount / Brand.itemsPerPage),
         }
       }
     }
