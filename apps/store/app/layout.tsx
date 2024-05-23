@@ -30,11 +30,12 @@ type Props = Readonly<{
 
 export default async function RootLayout({ children }: Props) {
   const { user } = await getUser()
+  const userName = user?.user_metadata?.name || 'Invitado'
 
   return (
     <html lang='es'>
       <body className={inter.className}>
-        <Header userName='Invitado' setCurrency={setCurrency} />
+        <Header userName={userName} setCurrency={setCurrency} />
         <Navbar isGuest={!user} signOut={signOut} />
         <div className='mx-2 flex'>
           <aside className='w-70 mr-2 shrink-0'>
