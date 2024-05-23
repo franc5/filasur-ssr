@@ -1,0 +1,21 @@
+{
+  "address": "Dirección",
+  "city": "Ciudad",
+  "country": "País",
+  "email": "Correo electrónico",
+  "generic_error": "Error al crear su cuenta. Por favor, vuelva a intentarlo más tarde",
+  "here": "aquí",
+  "name": "Nombre",
+  "lastname": "Apellido",
+  "password": "Contraseña",
+  "phone": "Teléfono (opcional)",
+  "recover_password_invite": "Si no recuerda su contraseña, haga click",
+  "sign_up": "Registrarse",
+  "state": "Provincia/Estado",
+  "title": "Registrarse",
+  "tos_message_part_1": "He leído y acepto las",
+  "tos_message_part_2": "condiciones de venta",
+  "tos_message_part_3": "del sitio",
+  "user_already_exists_error": "El correo electrónico ingresado ya está registrado",
+  "zip_code": "Código Postal"
+}
