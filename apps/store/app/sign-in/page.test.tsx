@@ -52,7 +52,7 @@ it('renders a functional sign in form', () => {
   testRecoverPasswordLink()
 })
 
-it('renders a functional sign in form', () => {
+it('renders a functional sign in form with an error message when it is passed in the url', () => {
   render(<SignInPage searchParams={{ error: Errors.Invalid_Credentials }} />)
 
   testSignInForm(true)
